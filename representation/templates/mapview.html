@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0 auto;
+            }
+            #map-canvas {
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map-canvas"></div>
+    </body>
+</html>
+<script type="text/javascript">
+    var ajax_url = "{% url 'gridcount' %}"
+    var c = {{ cases|safe }}; 
+    var mydata = []
+    for (var i = 0; i < c.length; i++) {
+        mydata.push(JSON.parse(c[i]));
+    };
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=geometry"></script>
+<script type="text/javascript" src="../static/js/infobox.js"></script>
+<script type="text/javascript" src="../static/js/data.js"></script>
+<script type="text/javascript" src="../static/js/map.js"></script>
+
+
